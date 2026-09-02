@@ -1,7 +1,8 @@
 import rclpy
 from rclpy.node import Node
 
-from std_msgs.msg import String
+from std_msgs.msg import String, Float32
+
 
 
 class Task1Subscriber(Node):
@@ -16,7 +17,7 @@ class Task1Subscriber(Node):
         self.subscription  # prevent unused variable warning
 
     def listener_callback(self, msg):
-        self.get_logger().info('I heard: "%s"' % msg.data)
+        self.get_logger().info('I heard: "%s", and "%d"is double it' % (msg.data, 2 * int(msg.data)))
 
 
 def main(args=None):
